@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+<h2>Prediction Result</h2>
+
+<!-- Show State -->
+<p><strong>State:</strong> {{ state }}</p>
+
+<!-- Prediction for Today or Future -->
+<p><strong>Date:</strong> {{ year }}-{{ month }}-{{ day }}</p>
+
+<!-- Display Prediction Information -->
+<p><strong>Predicted Load:</strong> {{ predicted_load }} MW</p>
+<p><strong>Status:</strong> {{ status }}</p>
+
+<!-- Options for Making New Predictions -->
+<div>
+    <h3>Make another prediction</h3>
+    <a href="{% url 'predict_page' %}?forecast_type=today">Forecast for Today</a>
+    <br>
+    <a href="{% url 'predict_page' %}?forecast_type=future">Forecast for a Future Date</a>
+</div>
+
+{% endblock %}
+
+{% comment %} {% extends 'base.html' %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+<h2>Prediction Result</h2>
+
+<!-- Show State -->
+<p><strong>State:</strong> {{ state }}</p>
+
+<!-- Prediction for Today or Future -->
+<p><strong>Date:</strong> {{ year }}-{{ month }}-{{ day }} at {{ hour }}:00</p>
+
+<!-- Display Prediction Information -->
+<p><strong>Predicted Load:</strong> {{ load }} MW</p>
+<p><strong>Status:</strong> {{ status }}</p>
+
+<!-- Options for Making New Predictions -->
+<div>
+    <h3>Make another prediction</h3>
+    <a href="{% url 'predict_page' %}?forecast_type=today">Forecast for Today</a>
+    <br>
+    <a href="{% url 'predict_page' %}?forecast_type=future">Forecast for a Future Date</a>
+</div>
+
+{% endblock %} {% endcomment %}
+

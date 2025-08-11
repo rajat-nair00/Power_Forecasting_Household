@@ -1,0 +1,23 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+<h2>Create Login</h2>
+
+{% if error %}
+  <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+
+{% csrf_token %}
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required><br><br>
+<label for="create_password">Create Password:</label>
+<input type="password" name="password1" required class="textboxid"><br><br>
+<label for="confirm_password">Confirm Password:</label>
+<input type="password" name="password2" required class="textboxid"><br><br>
+<button type="submit">Create</button>
+</form>
+
+
+{% endblock %}

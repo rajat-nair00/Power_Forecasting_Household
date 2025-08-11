@@ -1,0 +1,37 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+venv/
+env/
+.pow_env/
+.venv/
+ENV/
+
+# Django specific
+*.log
+db.sqlite3
+media/
+staticfiles/
+static/
+local_settings.py
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model and scaler files
+*.h5
+*.joblib
+*.pkl
+*.sav
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Colab specific
+*.ipynb

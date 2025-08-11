@@ -1,0 +1,8 @@
+{% extends 'Base.html' %}
+{% block content %}
+<h2>Select Prediction Type</h2>
+<ul>
+  <li><a href="{% url 'predict_page' %}">State-level Prediction</a></li>
+  <li><a href="{% url 'household_powercut' %}">Household-level Prediction</a></li>
+</ul>
+{% endblock %}

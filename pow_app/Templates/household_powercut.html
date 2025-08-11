@@ -1,0 +1,58 @@
+{% extends 'Base.html' %}
+{% block title %}Power Cut Prediction{% endblock %}
+
+{% block content %}
+<h2>Household Power Cut Prediction</h2>
+
+<form method="get" action="{% url 'household_result' %}">
+    {% csrf_token %}
+    <!-- Use logged-in user's district/state from session -->
+    <input type="hidden" name="state" value="{{ request.session.state }}">
+
+    <label><strong>Choose Prediction Date:</strong></label><br>
+    <input type="radio" name="forecast_type" value="today" id="today" checked>
+    <label for="today">Today</label><br>
+    <input type="radio" name="forecast_type" value="future" id="future">
+    <label for="future">Future</label><br><br>
+
+    <div id="datetime-fields">
+        <label for="year-field">Year:</label><br>
+        <input type="number" name="year" placeholder="Year" id="year-field"><br><br>
+
+        <label for="month-field">Month:</label><br>
+        <input type="number" name="month" placeholder="Month" id="month-field"><br><br>
+
+        <label for="day-field">Day:</label><br>
+        <input type="number" name="day" placeholder="Day" id="day-field"><br><br>
+    </div>
+
+    <button type="submit">Predict Power Cut</button>
+</form>
+
+<script>
+    const forecastToday = document.getElementById('today');
+    const forecastFuture = document.getElementById('future');
+    const datetimeFields = document.getElementById('datetime-fields');
+
+    const yearField = document.getElementById('year-field');
+    const monthField = document.getElementById('month-field');
+    const dayField = document.getElementById('day-field');
+
+    function toggleDateTimeInputs() {
+        const isFuture = forecastFuture.checked;
+        datetimeFields.style.display = isFuture ? 'block' : 'none';
+
+        // Set required only when future is selected
+        yearField.required = isFuture;
+        monthField.required = isFuture;
+        dayField.required = isFuture;
+    }
+
+    forecastToday.addEventListener('change', toggleDateTimeInputs);
+    forecastFuture.addEventListener('change', toggleDateTimeInputs);
+
+    // Initial setup
+    toggleDateTimeInputs();
+</script>
+{% endblock %}
+

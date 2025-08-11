@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Kerala Power Forecasting Dashboard</h2>
+    
+    {% if request.session.email %}
+    <p>Hello, {{ request.session.name }}!</p>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'predict_page' %}">
+            <button>Make a Prediction</button>
+        </a>
+        
+        <a href="{% url 'logout' %}" style="margin-left: 10px;">
+            <button>Logout</button>
+        </a>
+    </div>
+{% endblock %}

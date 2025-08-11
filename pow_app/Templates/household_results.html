@@ -1,0 +1,15 @@
+{% extends 'Base.html' %}
+{% block title %}Household Forecast Result{% endblock %}
+
+{% block content %}
+<h2>Household Power Forecast Result</h2>
+
+<p><strong>User:</strong> {{ user_name }}</p>
+<p><strong>Household ID:</strong> {{ household_id }}</p>
+<p><strong>State:</strong> {{ state }}</p>
+<p><strong>Date:</strong> {{ date }}</p>
+<p><strong>Predicted Load (kW):</strong> {{ predicted_load }}</p>
+<p><strong>Prediction:</strong> {{ prediction }}</p>
+
+<a href="{% url 'household_powercut' %}">Back to Prediction</a>
+{% endblock %}

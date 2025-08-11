@@ -1,0 +1,26 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+  <div style="max-width: 400px; margin: 0 auto; padding-top: 50px;">
+    <h2 style="text-align: center;">Login</h2>
+    <form method="POST">
+      {% csrf_token %}
+
+      <label for="email">Email:</label><br>
+      <input type="email" name="email" required><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" name="password" required><br><br>
+
+      <label>
+        <input type="checkbox" name="remember_me"> Remember Me
+      </label><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 20px;">
+      Don't have an account? <a href="{% url 'register' %}">Register here</a>
+    </p>
+  </div>
+{% endblock %}

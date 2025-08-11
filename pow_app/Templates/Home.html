@@ -1,0 +1,16 @@
+{% extends 'Base.html' %}
+{% block content %}
+  <div style="text-align:center; margin-top: 100px;">
+    <h1>Welcome to India Power Forecasting Portal</h1>
+    <p>Please click to continue.</p>
+    <a href="{% url 'custom_login' %}">
+      <button style="padding: 10px 20px; font-size: 16px;">Start</button>
+    </a>
+  </div>
+{% endblock %}
+{% comment %} {% block title %}Home{% endblock %}
+{% block content %}
+<h1>Welcome to the Weather & Load Prediction Tool</h1>
+<p>This tool forecasts electric load and detects possible power cuts based on weather.</p>
+<a href="{% url 'predict_page' %}">Start Prediction</a>
+{% endblock %} {% endcomment %}
