@@ -95,7 +95,7 @@ bash
 Copy
 Edit
 # Clone repository
-git clone https://github.com/your-username/power-forecasting.git
+git clone https://github.com/rajat-nair00/power-forecasting.git
 cd power-forecasting
 
 # Install dependencies
